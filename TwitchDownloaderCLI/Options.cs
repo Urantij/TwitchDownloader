@@ -38,6 +38,8 @@ namespace TwitchDownloaderCLI
         public bool Timestamp { get; set; }
         [Option("timestamp-format", HelpText = "Sets the timestamp format for .txt chat logs. Valid values are Utc, Relative, and None", Default = TimestampFormat.Relative)]
         public TimestampFormat TimeFormat { get; set; }
+        [Option("json-timeoffset-to-start", HelpText = "If true, comment time offset will start at the start of the video.", Default = false)]
+        public bool JsonTimeOffsetToVideoStart { get; set; }
         [Option("embed-emotes", HelpText = "Embed emotes into chat download.")]
         public bool EmbedEmotes { get; set; }
         [Option("background-color", Default = "#111111", HelpText = "Color of background for chat render.")]

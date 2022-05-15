@@ -217,6 +217,14 @@ namespace TwitchDownloaderCore
 
             if (downloadOptions.IsJson)
             {
+                if (downloadOptions.JsonTimeOffsetToVideoStart)
+                {
+                    foreach (var comment in chatRoot.comments)
+                    {
+                        comment.content_offset_seconds -= downloadOptions.CropBeginningTime;
+                    }
+                }
+
                 using (TextWriter writer = File.CreateText(downloadOptions.Filename))
                 {
                     var serializer = new JsonSerializer();
@@ -252,7 +260,7 @@ namespace TwitchDownloaderCore
                     sw.Close();
                 }
             }
-                
+
             chatRoot = null;
             GC.Collect();
         }

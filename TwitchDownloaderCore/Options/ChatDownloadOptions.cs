@@ -19,5 +19,7 @@ namespace TwitchDownloaderCore.Options
 
         public int ConnectionCount { get; set; }
         public TimestampFormat TimeFormat { get; set; }
+
+        public bool JsonTimeOffsetToVideoStart { get; set; }
     }
 }
